@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minecraft Server</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <h1>Luminaris</h1>
+        <div class="nav-links">
+            <div class="nav-item">
+                <a href="#">🛒 สินค้า</a>
+                <div class="dropdown">
+                    <a href="ranks.html"> ยศ</a>
+                    <a href="gacha.html"> กาชา</a>
+                    <a href="keys.html"> กุญแจ</a>
+                    <a href="protect.html"> โพรเทค</a>
+                    <a href="items.html"> สินค้าอื่นๆ</a>
+                </div>
+            </div>
+            <div class="nav-item">
+                <a href="topup.html"> เติมเงิน</a>
+            </div>
+            <div class="coins"> Coins: <span id="coins">0</span></div>
+            <div class="nav-item">
+                <a href="javascript:void(0);" onclick="openLogin()"> Login</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="banner">
+        
+    </div>
+
+    <div id="loginModal" class="login-modal">
+        <div class="login-modal-content">
+            <span class="close" onclick="closeLogin()">&times;</span>
+            <h2>เข้าสู่ระบบ</h2>
+            <form>
+                <label for="username">ชื่อผู้ใช้:</label>
+                <input type="text" id="username" name="username" required>
+                <label for="password">รหัสผ่าน:</label>
+                <input type="password" id="password" name="password" required>
+                <div class="login-buttons">
+                    <button type="button" onclick="closeLogin()" class="cancel-btn">ยกเลิก</button>
+                    <button type="submit" class="confirm-btn">เข้าสู่ระบบ</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function openLogin() {
+            document.getElementById("loginModal").style.display = "flex";
+        }
+
+        function closeLogin() {
+            document.getElementById("loginModal").style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            var modal = document.getElementById("loginModal");
+            if (event.target == modal) {
+                closeLogin();
+            }
+        };
+    </script>
+</body>
+</html>
