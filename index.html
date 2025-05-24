@@ -1,9 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minecraft Server</title>
+    <title>Luminaris Minecraft Server</title>
+    <meta name="description" content="Luminaris - Minecraft Fantasy Survival RPG Server with Factions, Quests, and more!">
+    <meta property="og:title" content="Luminaris Minecraft Server">
+    <meta property="og:description" content="เข้าร่วมโลกแฟนตาซีสุดยิ่งใหญ่ใน Luminaris! พิชิตเควสต์ เข้าร่วมฝ่าย และกลายเป็นผู้ครองโลก!">
+    <meta property="og:image" content="banner.jpg">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -31,14 +35,14 @@
     </nav>
 
     <div class="banner">
-        
+        เข้าสู่โลกแฟนตาซีแห่ง Luminaris
     </div>
 
     <div id="loginModal" class="login-modal">
         <div class="login-modal-content">
             <span class="close" onclick="closeLogin()">&times;</span>
             <h2>เข้าสู่ระบบ</h2>
-            <form>
+            <form onsubmit="event.preventDefault(); loginUser();">
                 <label for="username">ชื่อผู้ใช้:</label>
                 <input type="text" id="username" name="username" required>
                 <label for="password">รหัสผ่าน:</label>
@@ -58,6 +62,21 @@
 
         function closeLogin() {
             document.getElementById("loginModal").style.display = "none";
+        }
+
+        function loginUser() {
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            console.log("Logging in:", username);
+
+            // จำลองการล็อกอินสำเร็จ
+            closeLogin();
+            setUserCoins(150); // เปลี่ยนเลขได้ตามต้องการ
+        }
+
+        function setUserCoins(amount) {
+            document.getElementById("coins").textContent = amount;
         }
 
         window.onclick = function(event) {
